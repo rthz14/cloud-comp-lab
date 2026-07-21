@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sahyadri College of Engineering & Management - CSE Department</title>
+    <style>
+        /* Modern CSS Variables & Resets */
+        :root {
+            --primary: #0f4c81;     /* Academic Deep Blue */
+            --secondary: #e67e22;   /* Innovation Orange Accent */
+            --dark: #2c3e50;        /* Charcoal Text */
+            --light: #f4f7f6;       /* Soft Gray Background */
+            --white: #ffffff;
+            --shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+            --transition: all 0.3s ease;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--light);
+            color: var(--dark);
+            line-height: 1.6;
+        }
+
+        /* Header & Navigation Styling */
+        header {
+            background-color: var(--primary);
+            color: var(--white);
+            padding: 1.5rem 2rem;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .header-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .logo h1 {
+            font-size: 1.6rem;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+        }
+
+        .logo p {
+            font-size: 0.85rem;
+            opacity: 0.8;
+        }
+
+        nav a {
+            color: var(--white);
+            text-decoration: none;
+            margin-left: 1.5rem;
+            font-weight: 500;
+            font-size: 1rem;
+            transition: var(--transition);
+        }
+
+        nav a:hover {
+            color: var(--secondary);
+        }
+
+        /* Hero Banner Component */
+        .hero {
+            background: linear-gradient(rgba(15, 76, 129, 0.85), rgba(44, 62, 80, 0.95));
+            color: var(--white);
+            padding: 5rem 2rem;
+            text-align: center;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .hero h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .hero p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+
+        /* Main Section & Layout Containers */
+        .main-container {
+            max-width: 1200px;
+            margin: 3rem auto;
+            padding: 0 1.5rem;
+        }
+
+        section {
+            margin-bottom: 4rem;
+            scroll-margin-top: 6rem; /* Ensures navbar doesn't cover headings when using anchors */
+        }
+
+        h2.section-title {
+            font-size: 2rem;
+            color: var(--primary);
+            margin-bottom: 1.5rem;
+            position: relative;
+            padding-bottom: 0.5rem;
+        }
+
+        h2.section-title::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 60px;
+            height: 4px;
+            background-color: var(--secondary);
+            border-radius: 2px;
+        }
+
+        /* Content Card Grids */
+        .grid-layout {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 1.5rem;
+        }
+
+        .card {
+            background-color: var(--white);
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: var(--shadow);
+            border-top: 4px solid var(--primary);
+            transition: var(--transition);
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+        }
+
+        .card h3 {
+            color: var(--primary);
+            margin-bottom: 1rem;
+            font-size: 1.3rem;
+        }
+
+        /* Department Specific Lists */
+        .mission-list {
+            list-style: none;
+        }
+
+        .mission-list li {
+            position: relative;
+            padding-left: 2rem;
+            margin-bottom: 1.2rem;
+        }
+
+        .mission-list li::before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            top: 0;
+            color: var(--secondary);
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+
+        /* Institutional Badges Section */
+        .badge-container {
+            display: flex;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+            margin-top: 1.5rem;
+        }
+
+        .badge {
+            background-color: #e8f0fe;
+            color: var(--primary);
+            padding: 0.6rem 1.2rem;
+            border-radius: 20px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            border: 1px solid rgba(15, 76, 129, 0.2);
+        }
+
+        /* Footer Utilities */
+        footer {
+            background-color: var(--dark);
+            color: var(--white);
+            text-align: center;
+            padding: 2rem;
+            margin-top: 5rem;
+            font-size: 0.9rem;
+        }
+
+        footer p {
+            opacity: 0.7;
+        }
+
+        /* Responsive Breakpoints */
+        @media (max-width: 768px) {
+            .header-container {
+                flex-direction: column;
+                text-align: center;
+                gap: 1rem;
+            }
+            nav a {
+                margin: 0 0.75rem;
+            }
+            .hero h2 {
+                font-size: 1.8rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header and Brand Architecture -->
+    <header>
+        <div class="header-container">
+            <div class="logo">
+                <h1>Sahyadri College of Engineering & Management</h1>
+                <p>Autonomous Institution | Mangaluru, Karnataka</p>
+            </div>
+            <nav>
+                <a href="#about">About College</a>
+                <a href="#cse-department">CSE Department</a>
+                <a href="#vision-mission">Vision & Mission</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Contextual Hero Section -->
+    <main>
+        <div class="hero">
+            <div class="hero-content">
+                <h2>Department of Computer Science & Engineering</h2>
+                <p>Nurturing innovation, technical excellence, and ethical leadership on the serene banks of the Nethravathi River.</p>
+            </div>
+        </div>
+
+        <div class="main-container">
+            
+            <!-- Section 1: Institutional Profile -->
+            <section id="about">
+                <h2 class="section-title">About the Institution</h2>
+                <div class="card" style="border-top-color: var(--secondary);">
+                    <p>Established in 2007 under the aegis of the Bhandary Foundation, <strong>Sahyadri College of Engineering and Management (SCEM)</strong> is a premier technological institution nestled along the Mangalore-Bangalore National Highway 48. The campus boasts state-of-the-art infrastructure combined with an ecosystem built directly for innovation, incubation, and research excellence.</p>
+                    
+                    <div class="badge-container">
+                        <span class="badge">NAAC Accredited Grade 'A'</span>
+                        <span class="badge">NBA Approved Programs</span>
+                        <span class="badge">AICTE Recognized</span>
+                    </div>
+                </div>
+                            <section id="vision-mission">
+                <h2 class="section-title">Institutional Goals</h2>
+                <div class="grid-layout">
+                    
+                    <!-- Vision Element Block -->
+                    <div class="card">
+                        <h3>Our Vision</h3>
+                        <p>To be a premier institution in Technology and Management by fostering excellence in education, innovation, incubation and values to inspire and empower the young minds.</p>
+                    </div>
+
+                    <!-- Mission Element Block -->
+                    <div class="card">
+                        <h3>Our Mission</h3>
+                        <ul class="mission-list">
+                            <li><strong>M1:</strong> Creating an academic ambience to impart holistic education focusing on individual growth, integrity, ethical values and social responsibility.</li>
+                            <li><strong>M2:</strong> Develop skill based learning through industry-institution interaction to enhance competency and promote entrepreneurship.
+
+</li>
+                            <li><strong>M3:</strong> Fostering innovation and creativity through competitive environment with state-of-the-art infrastructure.
+
+</li>
+                        </ul>
+                    </div>
+
+                </div>
+            </section>
+
+            </section>
+
+            <!-- Section 2: Department Profile -->
+            <section id="cse-department">
+                <h2 class="section-title">Computer Science & Engineering</h2>
+                <p>The Department of Computer Science & Engineering was established in 2007 to empower future computational professionals with a rigorous foundation and technical adaptability. It addresses modern software engineering fields alongside specialized minor verticals like Artificial Intelligence, Machine Learning, and Cyber Security.</p>
+            </section>
+
+            <!-- Section 3: Vision and Mission Structures -->
+            <section id="vision-mission">
+                <h2 class="section-title">Departmental Goals</h2>
+                <div class="grid-layout">
+                    
+                    <!-- Vision Element Block -->
+                    <div class="card">
+                        <h3>Our Vision</h3>
+                        <p>To be a globally recognized center for imparting quality technical education through innovative research and incubation with moral values in the field of computer science and engineering</p>
+                    </div>
+
+                    <!-- Mission Element Block -->
+                    <div class="card">
+                        <h3>Our Mission</h3>
+                        <ul class="mission-list">
+                            <li><strong>M1:</strong> Fostering effective education through internal collaboration with industries to address societal demands</li>
+                            <li><strong>M2:</strong> Empowering professionals with strong ethical values and leadership abilities</li>
+                            <li><strong>M3:</strong> Developing research and entrepreneurship culture in students and faculty to cultivate lifelong learning</li>
+                        </ul>
+                    </div>
+
+                </div>
+            </section>
+
+        </div>
+    </main>
+
+    <!-- Structural Footer Area -->
+    <footer>
+        
+    <title>My First Webpage</title>
+</head>
+<body>
+    <h3>Made by RITHESH J RAI</h3>
+    <H3>4SF23CS168</H3
+>
+    <h3>7C</h3>
+
+</body>
+</html>
