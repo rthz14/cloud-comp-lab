@@ -8,7 +8,7 @@
 ---
 
 ## 🎯 Aim
-To design and implement a robust, production-ready asynchronous **Mailing Service** utility class utilizing the **Salesforce Apex Programming Language** (`Messaging.SingleEmailMessage`), allowing users to programmatically dispatch HTML-formatted transactional emails to multiple external recipients.
+To design and implement a robust, production-ready **Mailing Service** utility class utilizing the **Salesforce Apex Programming Language** (`Messaging.SingleEmailMessage`), allowing users to programmatically dispatch HTML-formatted transactional emails to multiple external recipients.
 
 ---
 
@@ -22,17 +22,17 @@ To design and implement a robust, production-ready asynchronous **Mailing Servic
 
 ## 🧭 System Algorithm
 
-```mermaid
-graph TD
-    A[Start Execution Script] --> B{Are toAddresses provided?}
-    B -- No --> C[Log Error & Terminate False]
-    B -- Yes --> D[Instantiate Messaging.SingleEmailMessage]
-    D --> E[Set Recipient, Subject, HTML Body, and Activity Properties]
-    E --> F[Invoke Messaging.sendEmail System Method]
-    F --> G{Was Send Successful?}
-    G -- Yes --> H[Log Success & Return True]
-    G -- No --> I[Catch Exception / Error & Return False]
-```
+1. **Start:** The execution script initializes with a list of recipient email addresses, subject line, and HTML body content.
+2. **Input Validation:** The system evaluates if the `toAddresses` array is null or empty.
+   * *If Empty:* The transaction logs an error message via `System.debug` and terminates, returning `false`.
+   * *If Valid:* The program advances to instantiation.
+3. **Object Initialization:** Instantiates a new instance of the `Messaging.SingleEmailMessage` core engine class.
+4. **Parameter Binding:** Binds properties to the email object instance using standard setter methods (`setToAddresses`, `setSubject`, `setHtmlBody`, and `setSaveAsActivity`).
+5. **Execution & Dispatch:** Passes the configured email object into the system method array `Messaging.sendEmail()`.
+6. **Result Validation:** Evaluates the boolean status array returned by the email kernel:
+   * *Success:* Logs execution milestones to console debugging logs and returns `true`.
+   * *Failure / Catch Block:* Catches database failures or runtime system exceptions, logs error tracking summaries, and returns `false`.
+7. **End:** The process gracefully terminates.
 
 ---
 
@@ -63,12 +63,12 @@ System.debug('Mail Server Status: ' + isSuccess);
 
 ### 2. Verify Output Logs
 Open the generation log console and check the runtime transaction execution statements:
-* Look for: `USER_DEBUG|[31]|DEBUG|Email sent successfully.`
-* Look for: `USER_DEBUG|[34]|DEBUG|Mail Server Status: true`
+* Look for: `USER_DEBUG||DEBUG|Email sent successfully.`
+* Look for: `USER_DEBUG||DEBUG|Mail Server Status: true`
 
 ---
 
-## 📊 Expected Output Screenshot
+## 📊 Expected Output Summary
 
 | Step | Action | Log Statement / Result |
 | :--- | :--- | :--- |
